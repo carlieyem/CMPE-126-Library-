@@ -8,6 +8,8 @@ using namespace std;
 
 class Book{
 protected:
+    enum bookType(none, Ebook, printedBook);
+    bookType type;
     string title;
     string author;
     bool isBorrowed;
@@ -28,14 +30,14 @@ public:
     friend bool operator ==(Book b1, Book b2);
 };
 
-class EBook: public Book{
-public:
-    EBook();
-};
+// class EBook: public Book{
+// public:
+//     EBook();
+// };
 
-class PrintedBook: public Book{
-public:
-    PrintedBook();
-};
+// class PrintedBook: public Book{
+// public:
+//     PrintedBook();
+// };
 
 #endif
