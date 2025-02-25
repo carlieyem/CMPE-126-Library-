@@ -8,7 +8,11 @@ Book::Book(string t, string a, bool b){
     author = a;
     isBorrowed = b;
 }
-
+Book::Book(Book& b){
+    title = b.title;
+    author = b.author;
+    isBorrowed = b.isBorrowed;
+}
 
 
 string Book::getTitle() 
@@ -40,3 +44,4 @@ void Book::setBorrowedStatus(bool b)
 {
     isBorrowed = b;
 }
+
