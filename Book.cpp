@@ -3,10 +3,11 @@
 
 using namespace std;
 
-Book::Book(string t, string a, bool b){
+Book::Book(string t, string a, bool b, bookType typ){
     title = t;
     author = a;
     isBorrowed = b;
+    type = typ;
 }
 Book::Book(Book& b){
     title = b.title;
@@ -15,19 +16,24 @@ Book::Book(Book& b){
 }
 
 
-string Book::getTitle() 
+string Book::getTitle() const
 {
     return title;
 }
 
-string Book::getAuthor()
+string Book::getAuthor() const 
 {
     return author;
 }
 
-bool Book::getBorrowedStatus()
+bool Book::getBorrowedStatus() const 
 {
     return isBorrowed;
+}
+
+Book::bookType Book::getType() const 
+{
+    return type;
 }
 
 void Book::setTitle(string t)

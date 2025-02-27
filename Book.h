@@ -8,18 +8,19 @@ using namespace std;
 
 class Book{
 protected:
-    enum bookType(none, Ebook, printedBook);
+    enum bookType{none, Ebook, printedBook};
     bookType type;
     string title;
     string author;
     bool isBorrowed;
 public:
-    Book(string t = "", string a = "", bool b = false);
+    Book(string t = "", string a = "", bool b = false, bookType type = printedBook);
     Book(Book& b);
 
-    string getTitle();
-    string getAuthor();
-    bool getBorrowedStatus();
+    string getTitle() const;
+    string getAuthor() const;
+    bool getBorrowedStatus() const;
+    bookType getType() const;
 
     void setTitle(string t);
     void setAuthor(string a);

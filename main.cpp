@@ -41,5 +41,8 @@ int main() {
     book2.setBorrowedStatus(true);
     cout << "Book 2 Borrowed Status: " << (book2.getBorrowedStatus() ? "Yes" : "No") << endl;
 
+    const char *BookTypeName[] = { "none", "Ebook", "printed book"};
+    cout << "Book 1's type: " << BookTypeName[book1.getType()] << '\n';
+
     return 0;
 }
