@@ -25,3 +25,24 @@ void Library::displayBooks() {
             << books[i].getAuthor() << (books[i].getBorrowedStatus() ? " (Borrowed)" : " (Available)") << "\n";
     }
 }
+
+bool Library::borrowBook(const string& bookTitle)
+{
+    for (size_t i = 0; i < books.size(); i++)
+    {
+        if (books[i].getTitle() == bookTitle)
+        {
+            borrowing.push(books[i]);
+            books.erase(books.begin() + i);
+            return true;
+        }
+    }
+    return false;
+}
+
+void Library::returnBook()
+{
+    Book& returnedBook = borrowing.front();
+    books.push_back(returnedBook);
+    borrowing.pop();
+}
