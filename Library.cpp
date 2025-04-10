@@ -43,6 +43,16 @@ bool Library::borrowBook(const string& bookTitle)
 void Library::returnBook()
 {
     Book& returnedBook = borrowing.front();
-    books.push_back(returnedBook);
+    returning.push(returnedBook);
     borrowing.pop();
 }
+
+void Library::endOfDayCheckout()
+{
+    while (!returning.empty())
+    {
+        books.push_back(returning.top());
+        returning.pop();
+    }
+}
+
