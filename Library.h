@@ -17,6 +17,7 @@ public:
     void addBook(const Book& book);
     void removeBook(const string& title);
     void displayBooks();
+    Book* searchBookByTitle(const string& title) const; //NEW SEARCH
 
     // pushes book with given title from book vector into borrowing queue
     // returns true if book was in library, otherwise false
