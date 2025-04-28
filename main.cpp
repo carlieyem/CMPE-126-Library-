@@ -11,6 +11,22 @@ int main() {
     lib.addBook(Book("Heir to the Empire", "Timothy Zahn"));
     lib.addBook(Book("The Great Gatsby", "F. Scott Fitzgerald"));
     lib.addBook(Book("The Lightning Theif", "Rick Riordan"));
+    
+    // Try searching for an existing book
+    Book *searchResult = lib.searchBookByTitle("The Great Gatsby");
+    if (!searchResult) { 
+        cout << "Search function: FAILED, unable to find 'The Great Gatsby' (should be in the library)\n";
+    } else {
+        cout << "Search function: OK, found '" << searchResult->getTitle() << "'\n";
+    }
+
+    // Try searching fo non-existing book
+    searchResult = lib.searchBookByTitle("NONE");
+    if (!searchResult) {
+        cout << "Searching non-existing book: OK\n";
+    } else { 
+        cout << "Searching non-existing book: FAILED, found '" << searchResult->getTitle() << "'\n";
+    }
 
     cout << "=== Initial Library Collection ===" << endl;
     lib.displayBooks();
