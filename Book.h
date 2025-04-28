@@ -21,6 +21,7 @@ public:
     string getAuthor() const;
     bool getBorrowedStatus() const;
     bookType getType() const;
+    virtual void display() const;
 
     void setTitle(string t);
     void setAuthor(string a);
