@@ -56,3 +56,20 @@ void Library::endOfDayCheckout()
     }
 }
 
+//adding search functions
+void Book::display() const {
+    std::cout << (isBorrowed ? "[Borrowed] " : "[Available] ") << title << " by " << author << std::endl;
+}
+
+Book* Library::searchBookByTitle(const std::string& title) const {
+    for (const Book& book : books) { // Iterate by reference
+        if (book.getTitle() == title && !book.getBorrowedStatus()) {
+            cout << "Book found: ";
+            book.display();  // Display the details of the found book
+            return const_cast<Book*>(&book);  // Return a non-const pointer to the book
+        }
+    }
+    cout << "Book not found or is currently borrowed: " << title << endl;
+    return nullptr;
+}
+
